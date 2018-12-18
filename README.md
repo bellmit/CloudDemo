@@ -5,5 +5,3 @@ spring boot + shiro + cas + dubbo + zookeeper + activiti + quartz +  activiti +f
 1. dubbo
 
 2. shiro
-
-3.
