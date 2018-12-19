@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="clouddemo.platform.service.dao.UsersMapper">
+  <resultMap id="BaseResultMap" type="clouddemo.platform.api.pojo.Users">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="lockflag" jdbcType="VARCHAR" property="lockflag" />
+    <result column="creatuserid" jdbcType="INTEGER" property="creatuserid" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="modifyuserid" jdbcType="INTEGER" property="modifyuserid" />
+    <result column="modifytime" jdbcType="TIMESTAMP" property="modifytime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, uid, password, name, telephone, email, lockflag, creatuserid, createtime, modifyuserid, 
+    modifytime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from USERS
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from USERS
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="clouddemo.platform.api.pojo.Users">
+    insert into USERS (id, uid, password, 
+      name, telephone, email, 
+      lockflag, creatuserid, createtime, 
+      modifyuserid, modifytime)
+    values (#{id,jdbcType=INTEGER}, #{uid,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{lockflag,jdbcType=VARCHAR}, #{creatuserid,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{modifyuserid,jdbcType=INTEGER}, #{modifytime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="clouddemo.platform.api.pojo.Users">
+    insert into USERS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="telephone != null">
+        telephone,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="lockflag != null">
+        lockflag,
+      </if>
+      <if test="creatuserid != null">
+        creatuserid,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="modifyuserid != null">
+        modifyuserid,
+      </if>
+      <if test="modifytime != null">
+        modifytime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="lockflag != null">
+        #{lockflag,jdbcType=VARCHAR},
+      </if>
+      <if test="creatuserid != null">
+        #{creatuserid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyuserid != null">
+        #{modifyuserid,jdbcType=INTEGER},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="clouddemo.platform.api.pojo.Users">
+    update USERS
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="lockflag != null">
+        lockflag = #{lockflag,jdbcType=VARCHAR},
+      </if>
+      <if test="creatuserid != null">
+        creatuserid = #{creatuserid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyuserid != null">
+        modifyuserid = #{modifyuserid,jdbcType=INTEGER},
+      </if>
+      <if test="modifytime != null">
+        modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="clouddemo.platform.api.pojo.Users">
+    update USERS
+    set uid = #{uid,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      lockflag = #{lockflag,jdbcType=VARCHAR},
+      creatuserid = #{creatuserid,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      modifyuserid = #{modifyuserid,jdbcType=INTEGER},
+      modifytime = #{modifytime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

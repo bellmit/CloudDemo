@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!-- 引入配置文件 -->
+    <!--TODO 注意！！！自动生成代码 要把这句放开,链接数据库-->
+    <properties resource="application.properties"/>
+    <!-- 指定数据连接驱动jar地址 -->
+    <classPathEntry location="D:\MvnReponsity\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar"/>
+
+    <context id="context" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+        <!-- 数据库的相关配置 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="${spring.datasource.url}"
+                        userId="${spring.datasource.username}" password="${spring.datasource.password}"/>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 实体类生成的位置 -->
+        <javaModelGenerator targetPackage="clouddemo.platform.api.pojo" targetProject="F:/CloudDemo/clouddemo-platform/clouddemo-platform-api/src/main/java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- *Mapper.xml 文件的位置 ，targetPackage：包名，targetProject：项目下的路径-->
+        <sqlMapGenerator targetPackage="sql-mappers" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- Mapper 接口文件的位置 -->
+        <javaClientGenerator targetPackage="clouddemo.platform.service.dao" targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!-- 配置表信息 -->
+        <!--第三方服务类型-->
+        <table schema="myschema" tableName="USERS"
+               domainObjectName="Users"
+               enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false">
+        </table>
+        <!--xxtable-->
+        <!--如果生成n个表，那就将上面的那段table代码copy n份-->
+    </context>
+</generatorConfiguration>
