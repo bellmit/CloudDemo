@@ -9,10 +9,15 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>CloudDemo</groupId>
-    <artifactId>platform</artifactId>
+    <artifactId>auth</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>platform</name>
+    <name>auth</name>
     <description>Demo project for Spring Boot</description>
+
+    <modules>
+        <module>clouddemo-auth-api</module>
+        <module>clouddemo-auth-service</module>
+    </modules>
 
     <properties>
         <java.version>1.8</java.version>
@@ -39,5 +44,7 @@
             </plugin>
         </plugins>
     </build>
+
+
 
 </project>

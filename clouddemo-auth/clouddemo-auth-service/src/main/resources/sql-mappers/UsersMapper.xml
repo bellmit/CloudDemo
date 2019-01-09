@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="clouddemo.platform.service.dao.UsersMapper">
-  <resultMap id="BaseResultMap" type="clouddemo.platform.api.pojo.Users">
+<mapper namespace="clouddemo.auth.service.dao.UsersMapper">
+  <resultMap id="BaseResultMap" type="clouddemo.auth.api.pojo.Users">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="uid" jdbcType="VARCHAR" property="uid" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -24,11 +24,18 @@
     from USERS
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+  <select id="selectByUid" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from USERS
+    where uid = #{uid,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from USERS
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="clouddemo.platform.api.pojo.Users">
+  <insert id="insert" parameterType="clouddemo.auth.api.pojo.Users">
     insert into USERS (id, uid, password, 
       name, telephone, email, 
       lockflag, creatuserid, createtime, 
@@ -38,7 +45,7 @@
       #{lockflag,jdbcType=VARCHAR}, #{creatuserid,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
       #{modifyuserid,jdbcType=INTEGER}, #{modifytime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="clouddemo.platform.api.pojo.Users">
+  <insert id="insertSelective" parameterType="clouddemo.auth.api.pojo.Users">
     insert into USERS
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -111,7 +118,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="clouddemo.platform.api.pojo.Users">
+  <update id="updateByPrimaryKeySelective" parameterType="clouddemo.auth.api.pojo.Users">
     update USERS
     <set>
       <if test="uid != null">
@@ -147,7 +154,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="clouddemo.platform.api.pojo.Users">
+  <update id="updateByPrimaryKey" parameterType="clouddemo.auth.api.pojo.Users">
     update USERS
     set uid = #{uid,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
