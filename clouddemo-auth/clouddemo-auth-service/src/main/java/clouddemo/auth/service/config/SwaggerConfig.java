@@ -59,10 +59,10 @@ public class SwaggerConfig {
         return new ApiInfoBuilder().title("接口文档")
                 .contact(new Contact("Elon", "https://github.com/hu516/CloudDemo", "15967161519@163.com"))
                 .description("CloudDemo-Auth接口文档")
-                .termsOfServiceUrl("NO terms of service")
-                .license("The Apache License, Version 2.0")
-                .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
-                .version("v1.0")
+//                .termsOfServiceUrl("NO terms of service")
+//                .license("The Apache License, Version 2.0")
+//                .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
+//                .version("v1.0")
                 .build();
     }
 

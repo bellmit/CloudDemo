@@ -7,7 +7,7 @@
     <!--TODO 注意！！！自动生成代码 要把这句放开,链接数据库-->
     <properties resource="application.properties"/>
     <!-- 指定数据连接驱动jar地址 -->
-    <classPathEntry location="D:\MvnReponsity\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar"/>
+    <classPathEntry location="C:\MvnReponsity\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar"/>
 
     <context id="context" targetRuntime="MyBatis3">
         <commentGenerator>
@@ -24,7 +24,7 @@
         </javaTypeResolver>
 
         <!-- 实体类生成的位置 -->
-        <javaModelGenerator targetPackage="clouddemo.platform.api.pojo" targetProject="F:/CloudDemo/clouddemo-platform/clouddemo-platform-api/src/main/java">
+        <javaModelGenerator targetPackage="clouddemo.auth.api.pojo" targetProject="F:/CloudDemo/clouddemo-auth/clouddemo-auth-api/src/main/java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
@@ -35,7 +35,7 @@
         </sqlMapGenerator>
 
         <!-- Mapper 接口文件的位置 -->
-        <javaClientGenerator targetPackage="clouddemo.platform.service.dao" targetProject="src/main/java" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="clouddemo.auth.service.dao" targetProject="src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
