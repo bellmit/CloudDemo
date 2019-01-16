@@ -8,6 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath><!-- lookup parent from repository -->
     </parent>
+
     <groupId>clouddemo.auth</groupId>
     <artifactId>api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -29,7 +30,6 @@
             <artifactId>shiro-core</artifactId>
             <version>1.4.0</version>
         </dependency>
-
     </dependencies>
 
 </project>
